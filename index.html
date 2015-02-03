@@ -16,10 +16,12 @@
         <h1 class="header__title">
           The Brighton Times
         </h1>
+        <img src="images/menu-btn.png" class="header__navbtn" id="menu-btn"></img>
       </div>
     </header>
 
     <nav id="drawer" class="nav">
+      <h2 class="nav__head">Navigation</h2>
       <ul class="nav__list">
         <li class="nav__item"><a href="#">News</a></li>
         <li class="nav__item"><a href="#">Events</a></li>
@@ -179,4 +181,16 @@
       </footer>
     </main>
   </body>
+  <script>
+    var menuBtn = document.querySelector("#menu-btn");
+    var drawer = document.querySelector("#drawer");
+    var main = document.querySelector("main");
+    menuBtn.addEventListener("click", function () {
+      drawer.classList.toggle('open');
+    });
+    main.addEventListener('click', function() {
+      drawer.classList.remove('open');
+    });
+    
+  </script>
 </html>

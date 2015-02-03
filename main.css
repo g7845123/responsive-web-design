@@ -73,6 +73,10 @@ ul {
   color: #212121;
 }
 
+.header__navbtn {
+  display: none;
+}
+
 
 /*
  *
@@ -84,6 +88,10 @@ ul {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.nav__head {
+  display: none;
 }
 
 .nav__list {
@@ -132,6 +140,10 @@ main {
  * Content
  *
  */
+ .content {
+  display: flex;
+  flex-wrap: wrap;
+ }
 
 
 /*
@@ -141,7 +153,6 @@ main {
  */
 
 .hero {
-  float: left;
   width: 100%;
   position: relative;
   background-image: url("./images/dog.jpg");
@@ -169,11 +180,10 @@ main {
  */
 
 .top-news {
-  float: right;
-  width: 100%;
-  height: 300px;
+  max-height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
+  width: 100%;
 }
 
 .news__title {
@@ -216,9 +226,8 @@ main {
  */
 
 .scores {
-  width: 100%;
-  float: left;
   padding-top: 1em;
+  flex-grow: 1;
 }
 
 .scores__table {
@@ -265,8 +274,7 @@ main {
  */
 
 .weather {
-  float: right;
-  width: 100%;
+  flex-grow: 1;
   padding: 1em;
 }
 
@@ -316,11 +324,12 @@ main {
 
 /*
  *
- * Weather
+ * Recent News
  *
  */
 
 .recent-news {
+  flex-grow: 1;
   clear: both;
   padding: 1em;
 }
@@ -373,4 +382,100 @@ footer a {
   text-decoration: none;
   color: #333;
   padding: 1.5em;
+  display: block;
+}
+
+section {
+  order: 10;
+}
+
+@media screen and (max-width: 550px) {
+  .header__logo {
+    height: 48px;
+    margin: 1em 0.5em 0 0;
+    vertical-align: bottom;
+  }
+
+  .header__title {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  .header__navbtn {
+    display: block;
+    width: 36px;
+    position: fixed;
+    right: 0.5em;
+    top: 0.75em;
+    z-index: 10;
+  }
+
+  .nav {
+    width: 300px;
+    transform: translate(-300px, 0);
+    position: fixed;
+    top: 0;
+    transition: transform 0.3s;
+    z-index: 9;
+    background-color: white;
+  }
+
+  .nav.open {
+    transform: translate(0, 0);
+  }
+
+  .nav__head {
+    display: block;
+    border-bottom: 2px solid #E0E0E0;
+    line-height: 24px;
+    padding: 24px;
+  }
+
+  .nav__item {
+    border-bottom: 1px solid #E0E0E0;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 700px) {
+  .hero {
+    width: 60%;
+    order: 0;
+  }
+
+  .weather {
+    width: 40%;
+    order: 1;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .hero {
+    width: 50%;
+    order: 0;
+  }
+
+  .top-news {
+    width: 50%;
+    order: 1;
+  }
+
+  .scores {
+    width: 60%;
+    order: 2;
+  }
+
+  .weather {
+    width: 40%;
+    order: 3;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .header__inner, .nav, main {
+    width: 850px;
+    margin: auto;
+  }
+  
 }
